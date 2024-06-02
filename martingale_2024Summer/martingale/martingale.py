@@ -26,7 +26,8 @@ GT User ID: tb34 (replace with your User ID)
 GT ID: 900897987 (replace with your GT ID)  		  	   		 	   			  		 			 	 	 		 		 	
 """  		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
-import numpy as np  		  	   		 	   			  		 			 	 	 		 		 	
+import numpy as np  		  	
+import matplotlib as mlp   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
 def author():  		  	   		 	   			  		 			 	 	 		 		 	
@@ -34,7 +35,7 @@ def author():
     :return: The GT username of the student  		  	   		 	   			  		 			 	 	 		 		 	
     :rtype: str  		  	   		 	   			  		 			 	 	 		 		 	
     """  		  	   		 	   			  		 			 	 	 		 		 	
-    return "tb34"  # replace tb34 with your Georgia Tech username.  		  	   		 	   			  		 			 	 	 		 		 	
+    return "sdatla8"  # replace tb34 with your Georgia Tech username.  		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
 def gtid():  		  	   		 	   			  		 			 	 	 		 		 	
@@ -42,7 +43,7 @@ def gtid():
     :return: The GT ID of the student  		  	   		 	   			  		 			 	 	 		 		 	
     :rtype: int  		  	   		 	   			  		 			 	 	 		 		 	
     """  		  	   		 	   			  		 			 	 	 		 		 	
-    return 900897987  # replace with your GT ID number  		  	   		 	   			  		 			 	 	 		 		 	
+    return 903647808  # replace with your GT ID number  		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
 def get_spin_result(win_prob):  		  	   		 	   			  		 			 	 	 		 		 	
@@ -66,9 +67,34 @@ def test_code():
     """  		  	   		 	   			  		 			 	 	 		 		 	
     win_prob = 0.60  # set appropriately to the probability of a win  		  	   		 	   			  		 			 	 	 		 		 	
     np.random.seed(gtid())  # do this only once  		  	   		 	   			  		 			 	 	 		 		 	
-    print(get_spin_result(win_prob))  # test the roulette spin  		  	   		 	   			  		 			 	 	 		 		 	
+    print(get_spin_result(win_prob))  # test the roulette spin  
+    #for i in range(100):
+    winnings = 0
+    attempts = 0
+    while winnings < 80:
+        won = False
+        bet_amount = 1
+        
+        while not won:
+            print('winnings', winnings)
+            print('bet amount', bet_amount)
+            won = get_spin_result(win_prob)
+            if not won:
+                winnings -= bet_amount
+                bet_amount *= 2
+            if won:
+                winnings+=bet_amount
+            attempts += 1
+            print('attempts', attempts)
+    #print('round: ', i)
+    #print('attempts', attempts)
+    print(winnings)
+		  	   		 	   			  		 			 	 	 		 		 	
     # add your code here to implement the experiments  		  	   		 	   			  		 			 	 	 		 		 	
+  
+
+	  	 		 	   			  			 	 	 		 		 	
   		  	   		 	   			  		 			 	 	 		 		 	
-  		  	   		 	   			  		 			 	 	 		 		 	
-if __name__ == "__main__":  		  	   		 	   			  		 			 	 	 		 		 	
+if __name__ == "__main__": 
+   			  		 			 	 	 		 		 	
     test_code()  		  	   		 	   			  		 			 	 	 		 		 	
